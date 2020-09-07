@@ -2,8 +2,9 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'pm-root',
-  templateUrl: './app.component.html'
+  templateUrl:"./app.component.html",
+  styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  pageTitle = 'Tshimolong Product Management';
+  pageTitle : string = 'Zabantu Online SuperMarket';
 }

@@ -1,3 +1,40 @@
-thead{
-    color: #337AB7
+.card{
+    opacity: 86%;
+    background:gray;
+    border:solid white;
+    color: white;
 }
+
+.table{
+    border:solid thick white;
+    color: white;
+}
+
+a:link{
+    color: white;
+}
+
+a:visited{
+   color:bisque; 
+}
+
+a:hover{
+    color:blue;
+}
+
+a:active{
+   color: violet;
+}
+
+@media only screen and (min-width: 997px) {
+    .btn {
+        border-radius: 15px 50px;
+        border:solid;
+        border-color: wheat;
+        height: 60px;
+        width: 60%;
+        background-color: tomato;
+       }
+
+  }
+  

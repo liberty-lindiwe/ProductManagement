@@ -1,7 +1,7 @@
 import { Injectable} from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
-import { catchError, tap} from 'rxjs/operators';
+import { catchError, tap, map} from 'rxjs/operators'; //tap allows us to look into the json data 
 import { IProduct} from './product';
 
 @Injectable(
@@ -11,17 +11,24 @@ import { IProduct} from './product';
 )
 export class ProductService{
 
-  private productUrl = 'api/products/products.json';
+  private productUrl = 'api/products/products.json';   //local json file provided with the started files (defined in the angular.json file)
    
   constructor(private http: HttpClient){}
 
   getProducts(): Observable<IProduct[]>{
 
     return this.http.get<IProduct[]>(this.productUrl).pipe (
-      tap(data => console.log('All:' + JSON.stringify(data))),
+      tap(data => console.log('All:' + JSON.stringify(data))),  //this is for error handling
       catchError(this.handleError)
     );
    
+  }
+
+  getProduct(id: number): Observable<IProduct | undefined> {
+    return this.getProducts()
+      .pipe(
+        map((products: IProduct[]) => products.find(p => p.productId === id))
+      );
   }
 
   private handleError(err:HttpErrorResponse){

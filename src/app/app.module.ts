@@ -27,11 +27,11 @@ import { ProductDetailGuard } from './products/product-detail.guard';
     HttpClientModule,
     RouterModule.forRoot([
       { path: 'products', component: ProductListComponent },
-      { path: 'products/:id', 
-      canActivate: [ProductDetailGuard],component: ProductDetailComponent },
+      { path: 'products/:id',canActivate: [ProductDetailGuard],
+      component: ProductDetailComponent },
       { path: 'welcome', component: WelcomeComponent},
       { path: '', redirectTo: 'welcome', pathMatch: 'full'},
-      { path: '**', redirectTo: 'welcome', pathMatch: 'full'}
+      { path: '**', redirectTo: 'welcome', pathMatch: 'full'} //used to display a 404 page but in our case we will route back to the welcome page
     ])
   ],
   providers: [],
